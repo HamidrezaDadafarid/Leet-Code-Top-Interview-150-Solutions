@@ -24,12 +24,10 @@ class Solution:
             if i < 0:  # If nums1 is exhausted, copy remaining elements from nums2
                 nums1[p] = nums2[j]
                 j -= 1
-                p -= 1
 
             elif j < 0:  # If nums2 is exhausted, nums1 is already in place
                 nums1[p] = nums1[i]
                 i -= 1
-                p -= 1
 
             else:
                 # Compare the last elements of both arrays and place the larger one at nums1[p]
@@ -40,4 +38,4 @@ class Solution:
                     nums1[p] = nums1[i]
                     i -= 1
 
-                p -= 1
+            p -= 1
