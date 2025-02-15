@@ -26,8 +26,7 @@ class Solution:
                 j -= 1
 
             elif j < 0:  # If nums2 is exhausted, nums1 is already in place
-                nums1[p] = nums1[i]
-                i -= 1
+                return
 
             else:
                 # Compare the last elements of both arrays and place the larger one at nums1[p]
