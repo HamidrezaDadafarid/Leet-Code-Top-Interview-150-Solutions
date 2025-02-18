@@ -1,6 +1,7 @@
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
         hashmap = {}
+        length = len(nums)
 
         # Building the hashmap with counts of each element
         for num in nums:
@@ -9,9 +10,7 @@ class Solution:
             else:
                 hashmap[num] = 1
 
-        # Checking for the majority element
-        for num in hashmap:
-            if hashmap[num] > len(nums) // 2:
+            if hashmap[num] > length // 2:
                 return num
 
     # Time Complexity: O(N), where N is the number of elements in the array.
