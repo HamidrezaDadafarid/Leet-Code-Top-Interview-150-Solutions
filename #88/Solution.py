@@ -4,43 +4,41 @@ from typing import List
 class Solution:
     def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
         """
-        Merge two sorted arrays nums1 and nums2 into nums1 as one sorted array in-place.
+        Merges two sorted arrays nums1 and nums2 into a single sorted array in-place.
 
-        Args:
-        nums1 (List[int]): The first sorted array with m elements followed by n empty spaces for merging.
-        m (int): The number of actual elements in nums1.
-        nums2 (List[int]): The second sorted array with n elements.
-        n (int): The number of elements in nums2.
+        :param nums1: List[int] - First sorted array with enough space at the end to hold nums2.
+        :param m: int - Number of initialized elements in nums1.
+        :param nums2: List[int] - Second sorted array.
+        :param n: int - Number of initialized elements in nums2.
 
-        Returns:
-        None: Modifies nums1 in-place to become the merged sorted array.
+        Time Complexity: O(m + n) - Each element from nums1 and nums2 is processed once.
+        Space Complexity: O(1) - The merge is done in-place, requiring no extra space.
         """
 
-        # Pointers for nums1, nums2, and the merged array
-        x, y, z = m - 1, n - 1, (m + n) - 1
+        # Pointers to the last initialized elements of nums1 and nums2
+        i, j = m - 1, n - 1
+        # Pointer to the last position in nums1
+        p = m + n - 1
 
-        # Merge nums1 and nums2 starting from the end to the beginning
-        while x >= 0 and y >= 0:
-            if nums1[x] > nums2[y]:
-                # If the current element in nums1 is greater, place it in the correct position
-                nums1[z] = nums1[x]
-                x -= 1
+        # Traverse from the back of both arrays to merge them in descending order
+        while p >= 0:
+            if i < 0:  # If nums1 is exhausted, copy remaining elements from nums2
+                nums1[p] = nums2[j]
+                j -= 1
+                p -= 1
+
+            elif j < 0:  # If nums2 is exhausted, nums1 is already in place
+                nums1[p] = nums1[i]
+                i -= 1
+                p -= 1
+
             else:
-                # If the current element in nums2 is greater or equal, place it in the correct position
-                nums1[z] = nums2[y]
-                y -= 1
-            z -= 1
+                # Compare the last elements of both arrays and place the larger one at nums1[p]
+                if nums1[i] < nums2[j]:
+                    nums1[p] = nums2[j]
+                    j -= 1
+                else:
+                    nums1[p] = nums1[i]
+                    i -= 1
 
-        # If there are any remaining elements in nums2, copy them over to nums1
-        while y >= 0:
-            nums1[z] = nums2[y]
-            y -= 1
-            z -= 1
-
-        # Note: No need to copy elements from nums1 because they are already in place.
-
-# Time Complexity: O(m + n)
-# The algorithm iterates over both arrays once, resulting in a linear time complexity.
-
-# Space Complexity: O(1)
-# The merging is done in-place in nums1, so no additional space is used beyond the input parameters.
+                p -= 1

@@ -21,19 +21,20 @@ class Solution:
 
     def isPalindrome2(self, x: int) -> bool:
         # Convert the number to a string and check if it is equal to its reverse.
-        return str(x) == str(x)[::-1]
+        s = str(x)
+        return s == s[::-1]
 
     # Time complexity: O(n), where n is the number of digits in x.
     # Space complexity: O(n) due to the storage of the string and its reverse.
 
     def isPalindrome3(self, x: int) -> bool:
+        # Check if the number is negative.
+        if x < 0:
+            return False
+
         # Convert the number to a string and get its length.
         x = str(x)
         n = len(x)
-
-        # Check if the number is negative by looking at the first character.
-        if x[0] == "-":
-            return False
 
         # Compare digits from the start and end moving towards the center.
         for i in range(n // 2):
@@ -45,22 +46,3 @@ class Solution:
 
     # Time complexity: O(n), where n is the number of digits in x.
     # Space complexity: O(1) for the iteration but O(n) due to the string conversion.
-
-    def isPalindrome4(self, x: int) -> bool:
-        # If the number is negative or if it ends with a 0 (and is not 0 itself),
-        # it cannot be a palindrome.
-        if x < 0 or (x % 10 == 0 and x != 0):
-            return False
-
-        reversed_half = 0
-        while x > reversed_half:
-            # Move the last digit of x to reversed_half.
-            reversed_half = reversed_half * 10 + x % 10
-            x //= 10
-
-        # x == reversed_half when the number has an even number of digits.
-        # x == reversed_half // 10 when the number has an odd number of digits.
-        return x == reversed_half or x == reversed_half // 10
-
-    # Time complexity: O(log10(x)) because we process half of the digits.
-    # Space complexity: O(1) since we are only using a few variables.

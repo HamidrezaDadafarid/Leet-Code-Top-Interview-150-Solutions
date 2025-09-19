@@ -8,16 +8,10 @@ class Solution:
 
         # Check if each letter in the ransomNote can be constructed from the magazine.
         for letter in ransomNote:
-            if not letter in dic:  # If the letter is not in the dictionary, return False
+            # If the letter is not in the dictionary or the number of the letter in ransomNote is more than in magazine, return False
+            if not letter in dic or dic[letter] == 0:
                 return False
             dic[letter] -= 1  # Decrement the count for the letter in the dictionary
-
-        # After decrementing, check if any letter has a negative count.
-        # A negative count would indicate that the ransom note requires more instances of that letter
-        # than what the magazine provides.
-        for value in dic.values():
-            if value < 0:
-                return False  # If any count is negative, return False
 
         # If all checks pass, the ransom note can be constructed from the magazine.
         return True
