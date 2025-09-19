@@ -3,14 +3,14 @@ class Solution:
     # Recursive Solution
     # Time Complexity: O(max(nums) ^ 2)
     # Space Complexity: O(n)
-    def canJump1(self, nums: List[int]) -> bool:
+    def canJump1(self, nums: list[int]) -> bool:
         n = len(nums)
 
         def can_reach(i):
             if i == n - 1:
                 return True
 
-            for jump in range(1, numq[i] + 1):
+            for jump in range(1, nums[i] + 1):
                 if can_reach(i + jump):
                     return True
 
@@ -21,7 +21,7 @@ class Solution:
     # Greedy Approach (Start At End)
     # Time Complexity: O(n)
     # Space Complexity: O(1)
-    def canJump2(self, nums: List[int]) -> bool:
+    def canJump2(self, nums: list[int]) -> bool:
         n = len(nums)
         goal = n - 1
 
@@ -34,7 +34,7 @@ class Solution:
     # Top Down DP (Memorization)
     # Time Complexity: O(n ^ 2)
     # Space Complexity: O(n)
-    def canJump3(self, nums: List[int]) -> bool:
+    def canJump3(self, nums: list[int]) -> bool:
         n = len(nums)
         mem = {n - 1: True}
 
@@ -42,7 +42,7 @@ class Solution:
             if i in mem:
                 return mem[i]
 
-            for jump in range(1, numq[i] + 1):
+            for jump in range(1, nums[i] + 1):
                 if can_reach(i + jump):
                     mem[i] = True
                     return True

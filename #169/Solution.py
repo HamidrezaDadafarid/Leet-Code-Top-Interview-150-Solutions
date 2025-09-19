@@ -1,5 +1,5 @@
 class Solution:
-    def majorityElement(self, nums: List[int]) -> int:
+    def majorityElement(self, nums: list[int]) -> int:
         hashmap = {}
 
         # Building the hashmap with counts of each element
@@ -20,7 +20,7 @@ class Solution:
     # Space Complexity: O(N), where N is the number of elements in the array.
     # This is because, in the worst case, we might need to store each element in the hashmap.
 
-    def majorityElement2(self, nums: List[int]) -> int:
+    def majorityElement2(self, nums: list[int]) -> int:
         # Initialize the candidate for majority element and a counter
         candidate = None
         count = 0

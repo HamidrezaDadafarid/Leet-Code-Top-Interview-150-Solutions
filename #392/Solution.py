@@ -22,5 +22,5 @@ class Solution:
         for j in range(len(t)):  # Iterate through 't'
             if i < len(s) and t[j] == s[i]:  # If characters match, move pointer 'i'
                 i += 1
-        
+
         return i == len(s)  # If 'i' reached the end of 's', then 's' is a subsequence

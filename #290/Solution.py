@@ -6,23 +6,23 @@ class Solution:
         # If the number of characters in the pattern and the number of words do not match, return False
         if len(pattern) != len(words):
             return False
-        
+
         # Create two hash maps to establish a bijection between pattern characters and words
         charToWord, wordToChar = {}, {}
 
         # Iterate over the pattern and words simultaneously
         for i in range(len(pattern)):
             # If the character has already been mapped, check if it maps to the same word
-            if (pattern[i] in charToWord and words[i] != charToWord[pattern[i]]):
+            if pattern[i] in charToWord and words[i] != charToWord[pattern[i]]:
                 return False
             # If the word has already been mapped, check if it maps to the same character
-            if (words[i] in wordToChar and pattern[i] != wordToChar[words[i]]):
+            if words[i] in wordToChar and pattern[i] != wordToChar[words[i]]:
                 return False
 
             # Establish the bidirectional mapping between character and word
             charToWord[pattern[i]] = words[i]
             wordToChar[words[i]] = pattern[i]
-        
+
         # If all checks pass, return True
         return True
 

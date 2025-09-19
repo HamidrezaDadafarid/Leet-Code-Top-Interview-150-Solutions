@@ -1,12 +1,9 @@
-from typing import List
-
-
 class Solution:
 
     # First approach: Iterative method
     # Time Complexity: O(n log n) due to sorting.
     # Space Complexity: O(1) extra space, since we sort in place.
-    def hIndex1(self, citations: List[int]) -> int:
+    def hIndex1(self, citations: list[int]) -> int:
         # h_index initialized to 0
         h_index = 0
 
@@ -27,7 +24,7 @@ class Solution:
     # Second approach: Brute-force approach
     # Time Complexity: O(n^2) because it checks each possible h-index and counts papers for each h.
     # Space Complexity: O(1) extra space.
-    def hIndex2(self, citations: List[int]) -> int:
+    def hIndex2(self, citations: list[int]) -> int:
         h = 0
 
         # Try all possible h-index values from 0 to len(citations)
@@ -50,7 +47,7 @@ class Solution:
     # Third approach: Counting sort
     # Time Complexity: O(n) for counting citations and iterating through the papers_count array.
     # Space Complexity: O(n) for the papers_count array.
-    def hIndex3(self, citations: List[int]) -> int:
+    def hIndex3(self, citations: list[int]) -> int:
         n = len(citations)
 
         # Create a list to count papers with each citation count

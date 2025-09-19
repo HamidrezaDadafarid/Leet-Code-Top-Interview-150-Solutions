@@ -16,6 +16,7 @@ class Solution:
         # containing elements that are not equal to `val`.
         return k
 
+
 # Time Complexity: O(n), where `n` is the length of the array `nums`.
 # The function iterates through each element in `nums` exactly once.
 

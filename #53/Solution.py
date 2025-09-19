@@ -1,6 +1,3 @@
-from typing import List
-
-
 class Solution:
     # Time Complexity: O(n^3)
     # The outer loop runs n times.
@@ -10,7 +7,7 @@ class Solution:
 
     # Space Complexity: O(1)
     # - The space complexity is constant because we only use a few extra variables (max_sum, s, i, j, k) regardless of the input size.
-    def maxSubArray1(self, nums: List[int]) -> int:
+    def maxSubArray1(self, nums: list[int]) -> int:
         # Initialize max_sum to negative infinity to ensure any sum will be larger.
         max_sum = float("-inf")
 
@@ -41,7 +38,7 @@ class Solution:
 
     # Space Complexity: O(1)
     # - The space complexity is constant because we only use a few extra variables (max_sum, current_sum, i, j).
-    def maxSubArray2(self, nums: List[int]) -> int:
+    def maxSubArray2(self, nums: list[int]) -> int:
         # Initialize max_sum to negative infinity to ensure any sum will be larger.
         max_sum = float("-inf")
 
@@ -67,7 +64,7 @@ class Solution:
 
     # Space Complexity: O(1)
     # The algorithm uses a fixed amount of extra space (variables cur_sum and max_sum), regardless of the input size.
-    def maxSubArray3(self, nums: List[int]) -> int:
+    def maxSubArray3(self, nums: list[int]) -> int:
         n = len(nums)
         max_sum = float("-inf")
         cur_sum = 0

@@ -1,19 +1,19 @@
-from typing import List
-
-
 class Solution:
-    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+    def merge(self, nums1: list[int], m: int, nums2: list[int], n: int) -> None:
         """
         Merges two sorted arrays nums1 and nums2 into a single sorted array in-place.
-
         :param nums1: List[int] - First sorted array with enough space at the end to hold nums2.
         :param m: int - Number of initialized elements in nums1.
         :param nums2: List[int] - Second sorted array.
         :param n: int - Number of initialized elements in nums2.
-
         Time Complexity: O(m + n) - Each element from nums1 and nums2 is processed once.
         Space Complexity: O(1) - The merge is done in-place, requiring no extra space.
         """
+
+        # Pointers to the last initialized elements of nums1 and nums2
+        i, j = m - 1, n - 1
+        # Pointer to the last position in nums1
+        p = m + n - 1
 
         # Pointers to the last initialized elements of nums1 and nums2
         i, j = m - 1, n - 1

@@ -1,6 +1,6 @@
 class Solution:
     # Method 1: Sorting the strings and comparing the first and last strings
-    def longestCommonPrefix1(self, strs: List[str]) -> str:
+    def longestCommonPrefix1(self, strs: list[str]) -> str:
         """
         Time Complexity: O(N * log N) due to sorting the strings (where N is the number of strings in the list)
         In the worst case, comparing the first and last string can take O(M) time (where M is the length of the strings)
@@ -29,7 +29,7 @@ class Solution:
         return ans  # Return the final common prefix
 
     # Method 2: Iteratively comparing each string's prefix
-    def longestCommonPrefix2(self, strs: List[str]) -> str:
+    def longestCommonPrefix2(self, strs: list[str]) -> str:
         """
         Time Complexity: O(N * M) where N is the number of strings and M is the average length of the strings.
         The outer loop runs for the length of the shortest string (O(M)) and the inner loop compares each string (O(N)).
