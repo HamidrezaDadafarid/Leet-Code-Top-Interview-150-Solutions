@@ -1,5 +1,5 @@
 class Solution:
-    def canPartition(self, nums: List[int]) -> bool:
+    def canPartition(self, nums: list[int]) -> bool:
         # Calculate the total sum of the array
         total_sum = sum(nums)
 
@@ -26,7 +26,9 @@ class Solution:
         # Fill the DP table
         for i in range(1, len(dp)):
             for j in range(1, target + 1):
-                if nums[i - 1] > j:  # If the current number is greater than the sum we're targeting
+                if (
+                    nums[i - 1] > j
+                ):  # If the current number is greater than the sum we're targeting
                     # Can't include this number, so take the value from the previous row
                     dp[i][j] = dp[i - 1][j]
                 else:
@@ -37,6 +39,7 @@ class Solution:
 
         # The result will be whether we can achieve 'target' sum using all numbers
         return dp[-1][-1]
+
 
 # Time Complexity:
 # The time complexity of this algorithm is O(n * target), where `n` is the number of elements in `nums`

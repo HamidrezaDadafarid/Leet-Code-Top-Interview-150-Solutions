@@ -1,5 +1,5 @@
 class Solution:
-    def removeElement(self, nums: List[int], val: int) -> int:
+    def removeElement(self, nums: list[int], val: int) -> int:
         # Initialize a counter `k` that will track the number of elements
         # that are not equal to `val`.
         k = 0
